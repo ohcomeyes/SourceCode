@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>选择打板师</title>
+    <link rel="stylesheet" href="js/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="js/layui/css/global.css" media="all">
+</head>
+<body>
+<div class="demoTable" style="margin: 10px;font-size: 14px;">
+    搜索ID：
+    <div class="layui-inline">
+        <input class="layui-input" name="id" id="demoReload" autocomplete="off">
+    </div>
+    <button class="layui-btn" data-type="reload">搜索</button>
+</div>
+<table class="layui-hide" id="LAY_table_user" lay-filter="user"></table>
+
+<script type="text/html" id="checkboxTpl">
+    <input type="checkbox" name="lock" value="{{d.id}}" title="启用" lay-filter="lockDemo" >
+</script>
+
+<script src="js/layui/layui.js" charset="utf-8"></script>
+<script>
+    layui.use('table', function(){
+        var table = layui.table,form = layui.form;
+        //方法级渲染
+        table.render({
+            elem: '#LAY_table_user'
+            ,url: 'api/demands/userSpecimenList'
+            ,cellMinWidth: 80
+            ,cols: [[
+                {field:'id', title: 'ID', width:80, sort: true, fixed: true}
+                ,{field:'name', title: '昵称', width:200}
+                ,{field:'phone', title: '联系电话', width:150, sort: true}
+                ,{field:'address', title: '地址'}
+                ,{field:'lock', title:'是否启用', width:120, templet: '#checkboxTpl', unresize: true}
+            ]]
+            ,id: 'testReload'
+            ,page: true
+            ,height: 315
+        });
+        var $ = layui.$, active = {
+            reload: function(){
+                var demoReload = $('#demoReload');
+                //执行重载
+                table.reload('testReload', {
+                    page: {
+                        curr: 1 //重新从第 1 页开始
+                    }
+                    ,where: {
+                        key: {
+                            id: demoReload.val()
+                        }
+                    }
+                });
+            }
+        };
+        $('.demoTable .layui-btn').on('click', function(){
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+        //监听锁定操作
+        form.on('checkbox(lockDemo)', function(obj){
+            var index = parent.layer.getFrameIndex(window.name)
+            layer.tips(this.value + ' ' + this.name + '：'+ obj.elem.checked, obj.othis);
+            parent.$("#specimen_user_id").val(this.value);
+//            parent.layer.msg('您将标记 [ ' +this.value + ' ] 成功传送给了父窗口');
+            parent.layer.close(index);
+//            $.get("api/demands/userSpecimenList", { },
+//                function(data){
+//                    alert("Data Loaded: " + data.code);
+//             });
+        });
+    });
+</script>
+
+</body>
+</html>

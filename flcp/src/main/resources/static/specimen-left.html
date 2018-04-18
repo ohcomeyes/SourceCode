@@ -1,0 +1,24 @@
+<script type="text/javascript" src="js/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/custom/general.js"></script>
+<div class="vernav2 iconmenu">
+    <ul>
+        <li><a href="#basics" class="editor">材料管理</a>
+            <span class="arrow"></span>
+            <ul id="basics">
+                <li ui-sref-active="current"><a>材料档案</a></li>
+                <li ui-sref-active="current"><a>材料分类</a></li>
+            </ul>
+        </li>
+        <li class="current"><a href="#formsub" class="editor">样品管理</a>
+            <span class="arrow"></span>
+            <ul id="formsub">
+                <li class="current"><a ui-sref="specimen">样品列表</a></li>
+                <!--<li><a href="wizard.html">Wizard</a></li>-->
+                <!--<li><a href="editor.html">WYSIWYG</a></li>-->
+            </ul>
+        </li>
+    </ul>
+    <a class="togglemenu"></a>
+    <br /><br />
+</div><!--leftmenu-->
+<div ui-view="specimenView"></div>

@@ -1,0 +1,16 @@
+<html>
+<head>
+    <script src="js/1.6.1/angular.min.js"></script>
+    <script src="js/1.0.5/angular-ui-router.js"></script>
+
+    <script src="js-action/helloworld.js"></script>
+    <style>.current { color: red; font-weight: bold }</style>
+</head>
+
+<body ng-app="helloworld">
+<li  ui-sref-active="current"><a ui-sref="hello">Hello</a></li>
+<li  ui-sref-active="current"><a ui-sref="about">About</a></li>
+
+<ui-view></ui-view>
+</body>
+</html>

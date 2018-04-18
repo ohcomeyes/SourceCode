@@ -1,0 +1,22 @@
+<script type="text/javascript" src="js/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/custom/general.js"></script>
+<div class="vernav2 iconmenu">
+    <ul>
+        <li ng-class="{current: $state.includes('level')}"><a href="#basics" class="editor">基础管理</a>
+            <span class="arrow"></span>
+            <ul id="basics">
+                <li ui-sref-active="current"><a ui-sref="level">评级管理</a></li>
+            </ul>
+        </li>
+        <li ng-class="{current: $state.includes('users') || $state.includes('usersSpecimen')}"><a href="#formsub" class="tables">用户管理</a>
+            <span class="arrow"></span>
+            <ul id="formsub">
+                <li ui-sref-active="current"><a ui-sref="users">设计师列表</a></li>
+                <li ui-sref-active="current"><a ui-sref="usersSpecimen">打板师列表</a></li>
+            </ul>
+        </li>
+    </ul>
+    <a class="togglemenu"></a>
+    <br /><br />
+</div><!--leftmenu-->
+<div ui-view="userList"></div>

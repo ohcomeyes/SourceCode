@@ -1,0 +1,83 @@
+<body class="withvernav">
+
+<div class="bodywrapper">
+
+    <div class="centercontent">
+        <ul class="breadcrumbs">
+            <li><a ui-sref="cost">规则列表</a></li>
+        </ul>
+        <!--<div class="pageheader">-->
+        <!--<h1 class="pagetitle"><a ui-sref="demand" class="fa fa-chevron-circle-left"></a>&nbsp;&nbsp;返回</h1>-->
+        <!--<span class="pagedesc">The content below are loaded using inline data</span>-->
+        <!--</div>&lt;!&ndash;pageheader&ndash;&gt;-->
+        <div id="contentwrapper" class="contentwrapper">
+
+            <div id="basicform" class="subcontent">
+
+                <!--<div class="contenttitle2">-->
+                <!--<a ui-sref="demand" class="btn_forms_black">« 返回</a>-->
+                <!--</div>&lt;!&ndash;contenttitle&ndash;&gt;-->
+                <form class="layui-form stdform stdform2"  ng-cloak> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+                    <p>
+                        <label>规则名</label>
+                        <span class="field">
+                            <input type="text" name="id" ng-model="cost.id" style="display: none;"/>
+                            <input name="cost_name" ng-model="cost.cost_name" lay-verify="required"  lay-verify="title"  placeholder="请输入标题" class="layui-input" type="text">
+                        </span>
+                    </p>
+                    <p>
+                        <label>规则种类</label>
+                        <span class="field" style="width: 20%">
+                            <select name="cost_type" lay-verify="required">
+                                <option  value=""></option>
+                                <option  value="0">提成</option>
+                            </select>
+                        </span>
+                    </p>
+                    <p>
+                        <label>规则方式</label>
+                        <span class="field">
+                            <input name="cost_method"  value="1" title="按生产件" type="radio">
+                            <input name="cost_method"  value="2" title="按销售件" type="radio">
+                            <input name="cost_method"  value="3" title="按销售比" type="radio">
+                            <input name="cost_method"  value="4" title="按销售额" type="radio">
+                        </span>
+                    </p>
+                    <p>
+                        <label>规则值</label>
+                        <span class="field" style="width: 20%">
+                            <input name="cost_value" ng-model="cost.cost_value" lay-verify="required|number"  placeholder="￥" autocomplete="off" class="layui-input" type="text">
+                        </span>
+                    </p>
+                    <p>
+                        <label>规则说明</label>
+                        <span class="field">
+                            <textarea name="cost_describe" ng-model="cost.cost_describe" lay-verify="required"  placeholder="请输入内容" class="layui-textarea"></textarea>
+                        </span>
+                    </p>
+                    <!--<p>-->
+                        <!--<label>是否启用</label>-->
+                        <!--<span class="field">-->
+                                <!--<input checked="" name="cost_status"  lay-skin="switch" lay-filter="switchTest" lay-text="ON|OFF" type="checkbox">-->
+                        <!--</span>-->
+                    <!--</p>-->
+                    <p class="stdformbuttoncenter">
+                        <button class="layui-btn" lay-submit lay-filter="organization">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </p>
+                    <!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+                </form>
+                <!--<br clear="all" />-->
+            </div><!--basiccontent-->
+
+        </div><!--contentwrapper-->
+
+    </div><!-- centercontent -->
+
+
+</div><!--bodywrapper-->
+
+</body>
+<link rel="stylesheet" href="js/layui/css/layui.css" media="all">
+<script src="js/layui/layui.all.js"></script>
+</html>

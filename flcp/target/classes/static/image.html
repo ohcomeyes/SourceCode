@@ -1,0 +1,42 @@
+
+<div class="centercontent">
+
+    <ul class="breadcrumbs">
+        <li><a ui-sref="demand">需求列表</a></li>
+        <li><a ng-click="back()">竞标人</a></li>
+        <li>图库</li>
+    </ul>
+
+    <div id="contentwrapper" class="contentwrapper nopadding">
+
+        <div class="prodwrapper">
+
+            <div class="prodcontent">
+                <div id="layer-photos-demo" class="layer-photos-demo">
+                    <img layer-pid="图片id，可以不写" layer-src="images/kozers/thumb/0.jpg" src="images/kozers/thumb/0.jpg" alt="图片名">
+                    <img layer-pid="图片id，可以不写" layer-src="images/kozers/thumb/0.jpg" src="images/kozers/thumb/0.jpg" alt="图片名">
+                    <img layer-pid="图片id，可以不写" layer-src="images/kozers/thumb/0.jpg" src="images/kozers/thumb/0.jpg" alt="图片名">
+                    <img layer-pid="图片id，可以不写" layer-src="images/kozers/thumb/0.jpg" src="images/kozers/thumb/0.jpg" alt="图片名">
+                    <img layer-pid="图片id，可以不写" layer-src="images/kozers/thumb/0.jpg" src="images/kozers/thumb/0.jpg" alt="图片名">
+                    <img layer-pid="图片id，可以不写" layer-src="images/kozers/thumb/0.jpg" src="images/kozers/thumb/0.jpg" alt="图片名">
+                    <img layer-pid="图片id，可以不写" layer-src="images/kozers/thumb/0.jpg" src="images/kozers/thumb/0.jpg" alt="图片名">
+                    <img layer-pid="图片id，可以不写" layer-src="images/kozers/thumb/0.jpg" src="images/kozers/thumb/0.jpg" alt="图片名">
+                </div>
+
+                <script>
+                    //调用示例
+                    layer.photos({
+                        photos: '#layer-photos-demo'
+                        ,anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
+                    });
+                </script>
+
+            </div><!--prodcontent-->
+
+            <br clear="all"><br><br>
+
+        </div><!--prodwrapper-->
+
+    </div><!--contentwrapper-->
+
+</div>

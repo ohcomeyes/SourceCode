@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>开始使用layer</title>
+</head>
+<body>
+
+<button id="test1" class="layui-btn">运行上述例子</button>
+<button id="test2" class="layui-btn">运行上述例子</button>
+<button  id="parentIframe" class="layui-btn">运行上述例子</button>
+<button id="test4" class="layui-btn">运行上述例子</button>
+<button id="test5" class="layui-btn">运行上述例子</button>
+<button id="test6" class="layui-btn">运行上述例子1</button>
+
+
+<script src="js/plugins/jquery-1.12.3.min.js"></script> <!-- 你必须先引入jQuery1.8或以上版本 -->
+<script src="layer/layer.js"></script>
+
+<!--<script type="text/javascript" src="js/plugins/jquery-ui-1.8.16.custom.min.js"></script>-->
+<!--<script type="text/javascript" src="js/plugins/jquery.cookie.js"></script>-->
+<!--<script type="text/javascript" src="js/plugins/jquery.uniform.min.js"></script>-->
+<!--<script type="text/javascript" src="js/plugins/jquery.flot.min.js"></script>-->
+<!--<script type="text/javascript" src="js/plugins/jquery.flot.resize.min.js"></script>-->
+<!--<script type="text/javascript" src="js/plugins/jquery.slimscroll.js"></script>-->
+<!--<script type="text/javascript" src="js/custom/general.js"></script>-->
+<!--<script type="text/javascript" src="js/custom/dashboard.js"></script>-->
+<script>
+
+    //弹出一个提示层
+    $('#test1').on('click', function(){
+        layer.msg('hello');
+    });
+
+    //弹出一个页面层
+    $('#test2').on('click', function(){
+        layer.open({
+            type: 1,
+            area: ['600px', '360px'],
+            shadeClose: true, //点击遮罩关闭
+            content: '\<\div style="padding:20px;">自定义内容\<\/div>'
+        });
+    });
+
+    //弹出一个iframe层
+    $('#parentIframe').on('click', function(){
+        layer.open({
+            type: 2,
+            title: 'iframe父子操作',
+            maxmin: true,
+            shadeClose: true, //点击遮罩关闭层
+            area : ['800px' , '520px'],
+            content: 'test/iframe.html'
+        });
+    });
+
+    //弹出一个loading层
+    $('#test4').on('click', function(){
+        var ii = layer.load();
+        //此处用setTimeout演示ajax的回调
+        setTimeout(function(){
+            layer.close(ii);
+        }, 1000);
+    });
+
+    //弹出一个tips层
+    $('#test5').on('click', function(){
+        layer.tips('Hello tips!', '#test5');
+    });
+
+    $('#test6').on('click', function(){
+        layer.open({
+            type: 1
+            ,title: false //不显示标题栏
+            ,closeBtn: false
+            ,area: '300px;'
+            ,shade: 0.8
+            ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+            ,resize: false
+            ,btn: ['火速围观', '残忍拒绝']
+            ,btnAlign: 'c'
+            ,moveType: 1 //拖拽模式，0或者1
+            ,content: '<div style="padding: 50px; line-height: 22px; background-color: #393D49; color: #fff; font-weight: 300;">内容<br>内容</div>'
+            ,success: function(layero){
+                var btn = layero.find('.layui-layer-btn');
+                btn.find('.layui-layer-btn0').attr({
+                    href: 'http://www.layui.com/'
+                    ,target: '_blank'
+                });
+            }
+        });
+    });
+
+</script>
+
+
+</body>
+</html>

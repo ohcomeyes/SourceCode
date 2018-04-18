@@ -1,0 +1,78 @@
+
+<body class="withvernav">
+
+<div class="bodywrapper">
+
+    <div class="centercontent">
+        <ul class="breadcrumbs">
+            <li><a ui-sref="usersSpecimen">打板师列表</a></li>
+            <li>查看编辑</li>
+        </ul>
+        <!--<div class="pageheader">-->
+        <!--<h1 class="pagetitle"><a ui-sref="demand" class="fa fa-chevron-circle-left"></a>&nbsp;&nbsp;返回</h1>-->
+        <!--<span class="pagedesc">The content below are loaded using inline data</span>-->
+        <!--</div>&lt;!&ndash;pageheader&ndash;&gt;-->
+        <div id="contentwrapper" class="contentwrapper">
+
+            <div id="basicform" class="subcontent">
+
+                <!--<div class="contenttitle2">-->
+                <!--<a ui-sref="demand" class="btn_forms_black">« 返回</a>-->
+                <!--</div>&lt;!&ndash;contenttitle&ndash;&gt;-->
+                <form class="layui-form stdform stdform2" ng-cloak> <!-- 提示：如果你不想用form，你可以换成div等任何一个普通元素 -->
+                    <p>
+                        <label>昵称</label>
+                        <span class="field">
+                                <input type="text" ng-model="userSpecimens.name" lay-verify="required"  name="name" class="longinput" />
+                            </span>
+                    </p>
+                    <p>
+                        <label>联系电话</label>
+                        <span class="field">
+                                <input type="text" ng-model="userSpecimens.phone" lay-verify="required|phone" autocomplete="off" required name="phone" class="longinput" />
+                            </span>
+                    </p>
+                    <p>
+                        <label>地址</label>
+                        <span class="field">
+                                <input type="text" ng-model="userSpecimens.address" lay-verify="required" name="address" class="longinput" />
+                            </span>
+                    </p>
+                    <p>
+                        <label>擅长技能</label>
+                        <span class="field" >
+                                <input type="checkbox" ng-repeat="skill in skillList" ng-model="skill.checked" name="adept{{skill.id}}" title="{{skill.name}}" on-finish-render/>
+                                <!--<input type="checkbox" ng-model="userSpecimens.adept1" ng-checked="adept1" title="工业打板">-->
+                                <!--<input type="checkbox" ng-model="userSpecimens.adept2" ng-checked="{{userSpecimens.adept2}}" title="版型设计">-->
+                                <!--<input type="checkbox" ng-model="userSpecimens.adept3" ng-checked="adept3" title="KT板">-->
+                            </span>
+                    </p>
+                    <p>
+                        <label>组织类型</label>
+                        <span class="field">
+                            <input  type="radio" name="organization" ng-value=true required ng-model="userSpecimens.organization" title="公司"/>   &nbsp; &nbsp;
+                            <input  type="radio" name="organization" ng-value=false required ng-model="userSpecimens.organization" title="个人"/>
+                            <!--<input type="radio"  name="organization" value=false ng-model="userSpecimens.organization" title="个人" lay-ignore>-->
+                            <!--<input type="radio"  name="organization" value=true  ng-model="userSpecimens.organization" title="公司" lay-ignore>-->
+                            </span>
+                    </p>
+                    <p class="stdformbuttoncenter">
+                        <button class="layui-btn" lay-submit lay-filter="organization">立即提交</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </p>
+                    <!-- 更多表单结构排版请移步文档左侧【页面元素-表单】一项阅览 -->
+                </form>
+                <!--<br clear="all" />-->
+            </div><!--basiccontent-->
+
+        </div><!--contentwrapper-->
+
+    </div><!-- centercontent -->
+
+
+</div><!--bodywrapper-->
+
+</body>
+<link rel="stylesheet" href="js/layui/css/layui.css" media="all">
+<script src="js/layui/layui.all.js"></script>
+</html>

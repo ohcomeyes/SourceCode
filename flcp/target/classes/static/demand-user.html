@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/widgets/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="css/widgets/app.css" type="text/css">
+
+</head>
+<body class="withvernav">
+
+<div class="bodywrapper">
+
+    <div class="centercontent">
+        <ul class="breadcrumbs">
+            <li><a ui-sref="demand">需求列表</a></li>
+            <li>竞标人</li>
+        </ul>
+        <!--<div class="pageheader">-->
+            <!--<h1 class="pagetitle"><a ui-sref="demand" class="fa fa-chevron-circle-left">&nbsp;&nbsp;返回</a></h1>-->
+        <!--</div>&lt;!&ndash;pageheader&ndash;&gt;-->
+
+        <div class="wrapper-md ng-scope">
+            <div class="row" ng-repeat="petitiveUsers in datas">
+                <div class="col-lg-4" ng-repeat="p in petitiveUsers">
+                    <div class="panel b-a">
+                        <div class="panel-heading bg-info dk no-border wrapper-lg">
+                            <a ui-sref="demand.user.support"><button class="btn btn-sm btn-icon btn-rounded btn-info pull-right m-r"><i class="fa fa-phone"></i></button></a>
+                            <button ng-click="selectUser(p.demand_id,p.user_id)" class="btn btn-sm btn-icon btn-rounded btn-info m-l"><i class="fa fa-heart"></i></button>
+                        </div>
+                        <div class="text-center m-b clearfix">
+                            <div class="thumb-lg avatar m-t-n-xxl">
+                                <img src="images/a5.jpg" alt="..." class="b b-3x b-white">
+                                <div class="h4 font-thin m-t-sm">{{p.user_name}}</div>
+                            </div>
+                        </div>
+                        <div class="list-group no-radius alt">
+                            <a class="list-group-item" href="">
+                                <span class="badge bg-success">25</span>
+                                <i class="fa fa-comment fa-fw text-muted"></i>
+                                Messages
+                            </a>
+                            <a class="list-group-item" href="">
+                                <span class="badge bg-info">16</span>
+                                <i class="fa fa-envelope fa-fw text-muted"></i>
+                                Inbox
+                            </a>
+                            <a class="list-group-item" href="">
+                                <span class="badge bg-light">5</span>
+                                <i class="fa fa-eye fa-fw text-muted"></i>
+                                Profile visits
+                            </a>
+                        </div>
+                        <div class="hbox text-center b-t b-light">
+                            <a href="" class="col padder-v text-muted b-r b-light">
+                                <div class="h4">5032</div>
+                                <span>Posts</span>
+                            </a>
+                            <a ui-sref="demand.user.image" class="col padder-v text-muted">
+                                <div class="h4">689</div>
+                                <span>Photos</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- centercontent -->
+
+
+</div><!--bodywrapper-->
+
+</body>
+</html>

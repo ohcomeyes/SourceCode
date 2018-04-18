@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hd">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="js/1.6.1/angular.min.js"></script>
+<script src="js/1.0.5/angular-ui-router.js"></script>
+
+<body ng-controller="list">
+<!--  使用angularJS时候，一定要注意加上ng-model，很多方法都是需要依赖ng-model的，
+        不加就会很多angularJS.min.js里错误报错，特别注意-->
+<div>
+    HTML部分:
+    <br>
+    <select name="gender1" id="gender1">
+        <option value="">请选择</option>
+        <option value="1" selected="selected">男</option>
+        <option value="2">女</option>
+    </select>
+    <input type="checkbox" checked="checked" name="gender2">男 <input type="checkbox" name="gender2">女
+    <input type="radio" checked="checked" name="gender3">男 <input type="radio" name="gender3">女
+    <hr>
+    angularJS部分:
+    <br>
+    <select name="genderJS1" id="genderJS1" ng-model="genderJS1" ng-options="d.id as d.name for d in data">
+        <option value="">请选择</option>
+    </select>
+    <input type="checkbox" ng-model="genderJS2">男
+    <input type="checkbox" ng-model="genderJS22">女
+    <!--  这里不能使用ng-value会有问题  -->
+    <input type="radio" name="genderJS3" ng-model="genderJS33" value="1">男
+    <input type="radio" name="genderJS3" ng-model="genderJS33" value="2">女
+    {{genderJS33}}
+    <hr>
+    方法:
+    <br>
+    <!--  输入数字1、2试试  -->
+    <input type="text" ng-model="genderMethod1">
+    <select name="genderMethod2" id="genderMethod2" ng-model="genderMethod2">
+        <option value="">请选择</option>
+        <option value="1" ng-selected="genderMethod1==1">男</option>
+        <option value="2" ng-selected="genderMethod1==2">女</option>
+    </select>
+    <br>
+    <select name="genderMethod3" id="genderMethod3" ng-model="genderMethod3">
+        <option value="">请选择</option>
+        <option value="1">男</option>
+        <option value="2">女</option>
+    </select>
+    <input type="radio" name="genderMethod4" ng-model="genderMethod3" value="1">男
+    <input type="radio" name="genderMethod4" ng-model="genderMethod3" value="2">女
+    <br>
+    <!--  ng-model的名称与ng-change的名称不要相同，否则报错  -->
+    <input type="checkbox" ng-model="checkMethodModel" ng-change="checkMethod()">方法
+</div>
+
+<script>
+    var hd = angular.module('hd',[]);
+    hd.controller('list',['$scope',function ($scope) {
+        $scope.data = [
+            {id: 1, name: "男"},
+            {id: 2, name: "女"},
+        ];
+        $scope.genderJS2 = true;
+        $scope.genderJS33 = "1";
+        $scope.selectMethod = function () {
+            alert("select");
+        };
+        $scope.checkMethod = function () {
+            alert("check");
+        };
+    }]);
+</script>
+
+</body>
+
+</html>
