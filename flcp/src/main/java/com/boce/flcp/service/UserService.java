@@ -1,5 +1,7 @@
 package com.boce.flcp.service;
 
+import com.boce.flcp.api.xiaochengxu.entity.Superior;
+import com.boce.flcp.api.xiaochengxu.entity.WebDemand;
 import com.boce.flcp.dao.UserRepository;
 import com.boce.flcp.dao.UserSpecimenRepository;
 import com.boce.flcp.data.Adept;
@@ -8,6 +10,8 @@ import com.boce.flcp.domain.*;
 import com.boce.flcp.sms.SmsService;
 import com.boce.flcp.util.CommonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 
@@ -221,4 +225,16 @@ public class UserService {
     public List<UserSpecimen> getAllUserSpecimen(){
         return userSpecimenRepository.findAll();
     }
+
+
+
+
+
+
+    /**xiaochengxu*/
+
+    public Page<Superior> getSuperiorList(int size, int page){
+        return userRepository.getSuperiorList(new PageRequest(page,size));
+    }
+
 }

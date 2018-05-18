@@ -16,6 +16,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: cglib:cglib:3.2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.ow2.asm:asm:5.1" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.ant:ant:1.9.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.ant:ant-launcher:1.9.6" level="project" />
+    <orderEntry type="library" name="Maven: commons-httpclient:commons-httpclient:3.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:1.5.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:1.5.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.5.7.RELEASE" level="project" />

@@ -35,7 +35,7 @@ public class DemandAssembler extends ResourceAssemblerSupport<Demand,DemandResou
 
 
 //    @Override
-//    public BeanResource toResource(Demand demand) {
+//    public BeanResource toResource(WebDemand demand) {
 ////        BeanResource beanResource = createResourceWithId(demand.getId(),demand);
 //        BeanResource demandResource = new BeanResource(demand);
 //        if(demand!=null){

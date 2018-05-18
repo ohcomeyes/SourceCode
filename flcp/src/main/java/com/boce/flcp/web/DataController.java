@@ -48,9 +48,9 @@ public class DataController {
 //    }
 //
 //    @RequestMapping(value="/polls", method= RequestMethod.GET)
-//    public ResponseEntity<Iterable<Demand>> getAllPolls() {
-//        Iterable<Demand> allPolls = demandRepository.findAll();
-//        for(Demand p : allPolls) {
+//    public ResponseEntity<Iterable<WebDemand>> getAllPolls() {
+//        Iterable<WebDemand> allPolls = demandRepository.findAll();
+//        for(WebDemand p : allPolls) {
 //            updatePollResourceWithLinks(p);
 //        }
 //        return new ResponseEntity<>(allPolls, HttpStatus.OK);
@@ -59,12 +59,12 @@ public class DataController {
 //
 //    @RequestMapping(value="/polls/{pollId}", method=RequestMethod.GET)
 //    public ResponseEntity<?> getPoll(@PathVariable Long pollId) {
-//        Demand p = demandRepository.findOne(pollId);
+//        WebDemand p = demandRepository.findOne(pollId);
 //        updatePollResourceWithLinks(p);
 //        return new ResponseEntity<> (p, HttpStatus.OK);
 //    }
 //
-//    private void updatePollResourceWithLinks(Demand demand) {
+//    private void updatePollResourceWithLinks(WebDemand demand) {
 ////        demand.add(linkTo(methodOn(DataController.class).getAllPolls()).slash("1").withSelfRel());
 ////        poll.add(linkTo(methodOn(VoteController.class).getAllVotes(poll.getPollId())).withRel("votes"));
 ////        poll.add(linkTo(methodOn(ComputeResultController.class).computeResult(poll.getPollId())).withRel("compute-result"));

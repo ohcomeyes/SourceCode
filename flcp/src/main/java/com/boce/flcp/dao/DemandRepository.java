@@ -1,5 +1,6 @@
 package com.boce.flcp.dao;
 
+import com.boce.flcp.api.xiaochengxu.entity.WebDemand;
 import com.boce.flcp.domain.Demand;
 import com.boce.flcp.domain.list.DemandList;
 import com.boce.flcp.domain.list.DesignList;
@@ -7,6 +8,8 @@ import com.boce.flcp.domain.list.SpecimenList;
 import com.boce.flcp.domain.model.DemandAnalyze;
 import io.swagger.annotations.Api;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -23,6 +26,10 @@ import java.util.Map;
 public interface DemandRepository extends JpaRepository<Demand,Long> {
         @RestResource(path = "phone",rel = "phone")
         Demand findByPhoneStartsWith(@Param("phone") String phone);
+
+        /**小程序web列表*/
+        @Query("select new com.boce.flcp.api.xiaochengxu.entity.WebDemand(d.id,d.demand_employer,d.demand_name,d.demand_money,d.demand_describe,d.end_date) from Demand d order by d.demand_time asc")
+        Page<WebDemand> getWebList(Pageable pageable);
 
         //hql不支持UNION连接查询，在in或者or查询遇到瓶颈时需要优化这段
         /**后台列表 start**/

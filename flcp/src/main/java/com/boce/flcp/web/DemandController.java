@@ -275,7 +275,7 @@ public class DemandController {
     }
 
 //    @RequestMapping(value = "/search",method = RequestMethod.GET)
-//    public Resource<Demand> findPhone(){
+//    public Resource<WebDemand> findPhone(){
 ////        return new ListResourceAssembler().toResource(demandService.findPhone());
 //    return null;
 //    }

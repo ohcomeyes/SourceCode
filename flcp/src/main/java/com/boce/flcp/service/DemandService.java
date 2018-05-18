@@ -1,5 +1,6 @@
 package com.boce.flcp.service;
 
+import com.boce.flcp.api.xiaochengxu.entity.WebDemand;
 import com.boce.flcp.dao.DemandRepository;
 import com.boce.flcp.dao.UserRepository;
 import com.boce.flcp.dao.UserSpecimenRepository;
@@ -11,13 +12,10 @@ import com.boce.flcp.domain.list.UserSpecimenList;
 import com.boce.flcp.util.Arith;
 import com.boce.flcp.util.CommonUtils;
 import com.boce.flcp.util.RedisUtils;
-import org.apache.tomcat.jni.Poll;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.transaction.Transactional;
 import java.util.*;
@@ -110,7 +108,7 @@ public class DemandService {
      * @Author xulovehua
      * @Date 2017/11/21 16:37
      * @Param []
-     * @return java.lang.Iterable<com.boce.flcp.domain.Demand>
+     * @return java.lang.Iterable<com.boce.flcp.domain.WebDemand>
      */
     public Iterable<Demand> findAll(){
         return demandRepository.findAll();
@@ -122,7 +120,7 @@ public class DemandService {
      * @Author xulovehua
      * @Date 2017/12/6 15:03
      * @Param []
-     * @return java.lang.Iterable<com.boce.flcp.domain.Demand>
+     * @return java.lang.Iterable<com.boce.flcp.domain.WebDemand>
      */
     public List<DemandList> findListByDemand(){
         return demandRepository.findListByDemand();
@@ -134,7 +132,7 @@ public class DemandService {
      * @Author xulovehua
      * @Date 2017/12/6 15:04
      * @Param []
-     * @return java.lang.Iterable<com.boce.flcp.domain.Demand>
+     * @return java.lang.Iterable<com.boce.flcp.domain.WebDemand>
      */
     public List<DesignList> findListByDesign(){return demandRepository.findListByDesign();}
 
@@ -144,7 +142,7 @@ public class DemandService {
      * @Author xulovehua
      * @Date 2017/12/6 15:04
      * @Param []
-     * @return java.lang.Iterable<com.boce.flcp.domain.Demand>
+     * @return java.lang.Iterable<com.boce.flcp.domain.WebDemand>
      */
     public List<SpecimenList> findListBySpecimen(){return demandRepository.findListBySpecimen();}
 
@@ -171,7 +169,7 @@ public class DemandService {
      * @Author xulovehua
      * @Date 2017/11/27 10:14
      * @Param [user_id]
-     * @return java.lang.Iterable<com.boce.flcp.domain.Demand>
+     * @return java.lang.Iterable<com.boce.flcp.domain.WebDemand>
      */
     public Iterable<Demand> getMyToDesignList(Long user_id){
         return demandRepository.getMyToDesignList(user_id);
@@ -183,7 +181,7 @@ public class DemandService {
      * @Author xulovehua
      * @Date 2017/12/26 14:37
      * @Param [user_id]
-     * @return java.lang.Iterable<com.boce.flcp.domain.Demand>
+     * @return java.lang.Iterable<com.boce.flcp.domain.WebDemand>
      */
     public Iterable<Demand> getMyPendingList(Long user_id){
         return demandRepository.getMyPendingList(user_id);
@@ -195,7 +193,7 @@ public class DemandService {
      * @Author xulovehua
      * @Date 2017/12/26 14:37
      * @Param [user_id]
-     * @return java.lang.Iterable<com.boce.flcp.domain.Demand>
+     * @return java.lang.Iterable<com.boce.flcp.domain.WebDemand>
      */
     public Iterable<Demand> getMySpecimenTailList(Long user_id){
         return  demandRepository.getMySpecimenTailList(user_id);
@@ -207,7 +205,7 @@ public class DemandService {
      * @Author xulovehua
      * @Date 2017/12/26 14:37
      * @Param [user_id]
-     * @return java.lang.Iterable<com.boce.flcp.domain.Demand>
+     * @return java.lang.Iterable<com.boce.flcp.domain.WebDemand>
      */
     public Iterable<Demand> getMyDoneList(Long user_id){
         return  demandRepository.getMyDoneList(user_id);
@@ -223,7 +221,7 @@ public class DemandService {
      * @Author xulovehua
      * @Date 2017/12/6 15:04
      * @Param []
-     * @return java.lang.Iterable<com.boce.flcp.domain.Demand>
+     * @return java.lang.Iterable<com.boce.flcp.domain.WebDemand>
      */
     public List<SpecimenList> findMyToSpecimenList(Long user_id){return demandRepository.findMyToSpecimenList(user_id);}
 
@@ -233,7 +231,7 @@ public class DemandService {
      * @Author xulovehua
      * @Date 2017/11/21 16:38
      * @Param [id]
-     * @return com.boce.flcp.domain.Demand
+     * @return com.boce.flcp.domain.WebDemand
      */
     public Demand getDemandById(Long id){
         Demand demand = demandRepository.findOne(id);
@@ -308,7 +306,7 @@ public class DemandService {
      * @Author xulovehua
      * @Date 2017/11/22 11:16
      * @Param [id, user_id]
-     * @return com.boce.flcp.domain.Demand
+     * @return com.boce.flcp.domain.WebDemand
      */
     public Demand getDemandByIdAndUser(Long id,Long user_id){
         String key = KEY_DEMAND_SET+id;
@@ -758,5 +756,17 @@ public class DemandService {
             return unify;
         }
         return unify;
+    }
+
+
+
+
+
+
+
+    /**xiaochengxu*/
+
+    public Page<WebDemand> getWebList(int size, int page){
+       return demandRepository.getWebList(new PageRequest(page,size));
     }
 }

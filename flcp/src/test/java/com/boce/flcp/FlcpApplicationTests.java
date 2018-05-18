@@ -1,5 +1,7 @@
 package com.boce.flcp;
 
+import com.boce.flcp.dao.WorksRepository;
+import com.boce.flcp.domain.Works;
 import com.boce.flcp.domain.model.DemandAnalyze;
 import com.boce.flcp.domain.model.DemandStatement;
 import com.boce.flcp.domain.model.PendingWork;
@@ -21,6 +23,7 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
@@ -38,7 +41,32 @@ public class FlcpApplicationTests {
     @Autowired
     RedisUtils redisUtils;
 
+    @Autowired
+    WorksRepository worksRepository;
+
     @Test
+    public void writeWorks(){
+        String path="C:/Users/tangxu/Desktop/协同设计平台模板/girl";
+        File file=new File(path);
+        File[] tempList = file.listFiles();
+        System.out.println("该目录下对象个数："+tempList.length);
+        List<Works> worksList = new ArrayList<>();
+        for (int i = 0; i < tempList.length; i++) {
+            if (tempList[i].isFile()) {
+                System.out.println("文件：" + tempList[i].getName());
+                Works works = new Works();
+                works.setType("福利");
+                works.setUsed("1099833");
+                works.setSource("xiaochengxu");
+                works.setUrl(tempList[i].getName());
+                works.setWho("daimajia");
+                worksList.add(works);
+            }
+        }
+        worksRepository.save(worksList);
+    }
+
+//    @Test
     @SuppressWarnings("unchecked")
     public void contextLoads() {
 //		System.out.println(redisTemplate.opsForValue().get("123"));

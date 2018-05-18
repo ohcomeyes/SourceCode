@@ -385,7 +385,7 @@ a.item-details-link:hover {background: #d8450b url(../img/gallery-item-icons.png
 .post-summary p {padding:20px; margin:0px;}
 /*.post-summary-footer {margin: 0px; padding:0px 20px;}*/
 .post-summary-footer button {margin: 0px; float:left;}
-ul.post-data {float:right;}
+ul.post-data {float:left;}
 ul.post-data-3 {margin-top:20px;}
 ul.post-data li, ul.post-data-3 li {
 	list-style: none; 
@@ -602,6 +602,8 @@ ul.post-data li:last-child {padding-right: 0px;}
 	text-transform:uppercase;
 	font-size: 14px;
 }
+.demand-name a{color: #06c;}
+.demand-name a:hover{color: #ec2828;}
 .demand-date{
 	font-family:Georgia, "Times New Roman", Times, serif;
 	font-style: italic;
@@ -610,8 +612,8 @@ ul.post-data li:last-child {padding-right: 0px;}
 	font-size: 14px;
 }
 .demand-money{
-	color:#ff6900;
-	font-size: 16px;
+	color:red;
+	font-size: 14px;
 }
 
 .demand-people{ margin: 0px;}

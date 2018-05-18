@@ -1698,7 +1698,7 @@ a.btn_red:hover { opacity: 1; color: #fff; border-color: #a31314; }
 /***** 33. PROFILE PAGE STYLES *****/
 /***********************************/
 
-.profile_wrapper { width: 700px; padding-right: 20px; border-right: 1px solid #ddd; }
+.profile_wrapper { padding-right: 20px; border-right: 1px solid #ddd; }
 .profilepic { 
 	padding: 5px; background: #fff; border: 1px solid #ddd; -moz-border-radius: 2px; -webkit-border-radius: 2px; 
 	border-radius: 2px; float: left; display: block; margin-left: 20px; 
@@ -1740,7 +1740,7 @@ blockquote.bq2 {
 	border-radius: 2px; -moz-box-shadow: 0 1px 0 #eee; -webkit-box-shadow: 0 1px 0 #eee; box-shadow: 0 1px 0 #eee;
 }
 .blogthumb:hover img { opacity: 0.8; }
-.blogsummary { line-height: 21px; margin-left: 280px; min-height: 200px; }
+.blogsummary { line-height: 21px; margin-left: 280px; min-height: 200px; margin-bottom: 10px;}
 .blogsummary h3 { font-weight: normal; margin-bottom: 5px; font-family: 'RobotoCondensed', Arial, Helvetica, sans-serif; }
 .blogsummary h3 a:hover { color: #FB9337; }
 
@@ -1755,7 +1755,7 @@ blockquote.bq2 {
 .addcomment textarea { width: 100%; }
 
 .recentshots { list-style: none; }
-.recentshots li { float: left; overflow: hidden; margin: 0 20px 20px 0; }
+.recentshots li { float: left; overflow: hidden; margin: 0 10px 20px 0; }
 .recentshots li:last-child { margin-right: 0; }
 .recentshots li a.th { 
 	border: 1px solid #ddd; display: block; padding: 5px; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px;
@@ -1843,7 +1843,7 @@ blockquote.bq2 {
 .photosharing_wrapper .desc p { margin: 15px 0; }
 .photosharing_wrapper .desc p:first-class { margin-top: 0; }
 
-.ps_sidebar { width: 270px; padding: 0 20px; }
+.ps_sidebar { padding: 0 20px; }
 .ps_sidebar .ps_author { 
 	float: left; padding: 3px; border: 1px solid #ddd; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; 
 	background: #fff; -moz-box-shadow: 0 1px 0 #eee; -webkit-box-shadow: 0 1px 0 #eee; box-shadow: 0 1px 0 #eee; display: block;
@@ -1857,7 +1857,7 @@ blockquote.bq2 {
 .ps_sidebar .viewinfo .numcomments { background: url(../images/icons/comment.png) no-repeat left center; }
 
 .morephotolist { list-style: none; }
-.morephotolist li { display: inline-block; float: left}
+.morephotolist li { display: inline-block; float: left;margin: 0 10px 10px 0}
 .morephotolist li a { 
 	display: block; padding: 5px; border: 1px solid #ddd; -moz-border-radius: 2px; -webkit-border-radius: 2px; 
 	border-radius: 2px; -moz-box-shadow: 0 1px 0 #eee; -webkit-box-shadow: 0 1px 0 #eee; box-shadow: 0 1px 0 #eee; 
@@ -1867,6 +1867,9 @@ blockquote.bq2 {
 .sharing_commentform form { margin: 20px 0; display: block; }
 .sharing_commentform form input { width: 100%; }
 
+
+.demandinfo p a{font-weight:bold;color: #32415a;}
+.demandinfo p a:hover{color: #FB9337;}
 
 
 /***** 35. PRODUCT LIST STYLES *****/

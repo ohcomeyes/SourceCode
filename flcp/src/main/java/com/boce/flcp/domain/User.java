@@ -42,6 +42,10 @@ public class User {
     private int design_age;
     @ApiModelProperty(value = "用户注册时间",position=8)
     private String time;
+    @ApiModelProperty(value = "用户头像",position=9)
+    private String portrait;
+    @ApiModelProperty(value = "用户描述",position=10)
+    private String describe;
 
     @Transient
     @ApiModelProperty(value = "设计行业#1:造型设计,2:结构设计,3：工艺设计",position=6,allowableValues="range[1,3]")
@@ -138,5 +142,21 @@ public class User {
 
     public void setIndustrys(List<String> industrys) {
         this.industrys = industrys;
+    }
+
+    public String getPortrait() {
+        return portrait;
+    }
+
+    public void setPortrait(String portrait) {
+        this.portrait = portrait;
+    }
+
+    public String getDescribe() {
+        return describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
     }
 }

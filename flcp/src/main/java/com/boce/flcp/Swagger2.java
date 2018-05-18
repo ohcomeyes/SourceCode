@@ -22,6 +22,7 @@ public class Swagger2 {
                 .paths(PathSelectors.any())
                 .build();
 //                .pathMapping("/api")
+        //访问地址 swagger-ui.html
     }
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()

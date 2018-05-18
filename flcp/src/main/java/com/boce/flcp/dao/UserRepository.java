@@ -1,6 +1,9 @@
 package com.boce.flcp.dao;
 
+import com.boce.flcp.api.xiaochengxu.entity.Superior;
 import com.boce.flcp.domain.User;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -26,4 +29,7 @@ public interface UserRepository extends JpaRepository<User,Long>{
     User withAccountQuery(@Param("account")String account);
 
     List<User> findByIdIn(@Param("ids") Collection<Long> ids);
+
+    @Query("select new com.boce.flcp.api.xiaochengxu.entity.Superior(u.id,u.name,u.describe,u.portrait) from User u order by u.time asc")
+    Page<Superior> getSuperiorList(Pageable pageable);
 }
