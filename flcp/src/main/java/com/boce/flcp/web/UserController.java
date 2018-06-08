@@ -1,33 +1,23 @@
 package com.boce.flcp.web;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import com.boce.flcp.assembler.UserAssembler;
-import com.boce.flcp.dao.UserRepository;
 import com.boce.flcp.domain.*;
 import com.boce.flcp.resource.UserResource;
 import com.boce.flcp.service.UserService;
-import com.boce.flcp.sms.SmsService;
-import com.boce.flcp.util.CommonUtils;
-import com.sun.xml.internal.bind.v2.model.core.ID;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Sort;
 import org.springframework.hateoas.Resources;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
-import java.io.*;
-import java.nio.charset.Charset;
-import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
+import java.util.List;
+
+
+@Api(value="3_用户",position=3,description ="用户API")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {

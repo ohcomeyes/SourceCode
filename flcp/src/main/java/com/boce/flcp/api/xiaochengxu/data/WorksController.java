@@ -2,6 +2,7 @@ package com.boce.flcp.api.xiaochengxu.data;
 
 import com.boce.flcp.domain.Works;
 import com.boce.flcp.service.WorksService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author: Mr.Tang
  * @create: 2018-05-08 11:00
  **/
+@Api(value="8_小程序作品展示",position=8,description ="小程序作品API")
 @RestController
 @RequestMapping("/api/data/works")
 public class WorksController {

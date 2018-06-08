@@ -1,7 +1,6 @@
 package com.boce.flcp.service;
 
 import com.boce.flcp.api.xiaochengxu.entity.Superior;
-import com.boce.flcp.api.xiaochengxu.entity.WebDemand;
 import com.boce.flcp.dao.UserRepository;
 import com.boce.flcp.dao.UserSpecimenRepository;
 import com.boce.flcp.data.Adept;
@@ -14,8 +13,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 
 @Service
 public class UserService {

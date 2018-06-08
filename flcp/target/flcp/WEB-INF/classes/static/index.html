@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html ng-app="mainApp">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>协同设计平台</title>
+<link rel="stylesheet" href="css/style.default.css" type="text/css" />
+<link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css" type="text/css"/>
+    <!--<script type="text/javascript" src="js/plugins/jquery-1.12.3.min.js"></script>-->
+    <script type="text/javascript" src="js/plugins/jquery-1.7.min.js"></script>
+    <script src="js/1.6.1/angular.min.js"></script>
+    <script src="js/1.0.5/angular-ui-router.js"></script>
+    <script type="text/javascript" src="vendor/ngDialog/js/ngDialog.min.js"></script>
+    <script type="text/javascript" src="js-action/app.js"></script>
+    <script src="layer/layer.js"></script>
+    <script type="text/javascript" src="js/highcharts/highcharts.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/plugins/excanvas.min.js"></script><![endif]-->
+<!--[if IE 9]>
+    <link rel="stylesheet" media="screen" href="css/style.ie9.css"/>
+<![endif]-->
+<!--[if IE 8]>
+    <link rel="stylesheet" media="screen" href="css/style.ie8.css"/>
+<![endif]-->
+<!--[if lt IE 9]>
+	<script src="js/plugins/css3-mediaqueries.js"></script>
+<![endif]-->
+</head>
+
+<body class="withvernav">
+<div class="bodywrapper" ng-controller="indexController">
+    <div class="topheader">
+        <div class="left">
+            <h1 class="logo">博策.<span>协同设计</span></h1>
+            <span class="slogan">后台管理系统</span>
+
+            <!--<div class="search">-->
+            	<!--<form action="" method="post">-->
+                	<!--<input type="text" name="keyword" id="keyword" value="请输入" />-->
+                    <!--<button class="submitbutton"></button>-->
+                <!--</form>-->
+            <!--</div>&lt;!&ndash;search&ndash;&gt;-->
+
+            <br clear="all" />
+
+        </div><!--left-->
+
+        <div class="right">
+        	<div class="notification">
+            <a class="count" href="ajax/notifications.html"><span>9</span></a>
+            </div>
+            <div class="userinfo">
+            	<img src="images/thumbs/avatar.png" alt="" />
+                <span>管理员</span>
+            </div><!--userinfo-->
+
+            <div class="userinfodrop">
+            	<div class="avatar">
+                	<a href=""><img src="images/thumbs/avatarbig.png" alt="" /></a>
+                    <div class="changetheme">
+                    	切换主题: <br />
+                    	<a class="default"></a>
+                        <a class="blueline"></a>
+                        <a class="greenline"></a>
+                        <a class="contrast"></a>
+                        <a class="custombg"></a>
+                    </div>
+                </div><!--avatar-->
+                <div class="userdata">
+                	<h4>Juan</h4>
+                    <span class="email">youremail@yourdomain.com</span>
+                    <ul>
+                    	<li><a href="editprofile.html">编辑资料</a></li>
+                        <li><a href="accountsettings.html">账号设置</a></li>
+                        <li><a href="help.html">帮助</a></li>
+                        <li><a href="login.html">退出</a></li>
+                    </ul>
+                </div><!--userdata-->
+            </div><!--userinfodrop-->
+
+
+        </div><!--right-->
+    </div><!--topheader-->
+
+
+    <div class="header">
+    	<ul class="headermenu">
+        	<!--<li class="current"><a href="#dashboard"><span class="icon icon-flatscreen"></span>首页</a></li>-->
+            <!--<li><a href="#users"><span class="icon icon-pencil"></span>用户管理</a></li>-->
+            <!--<li><a href="manageblog.html"><span class="icon icon-pencil"></span>博客管理</a></li>-->
+            <!--<li><a href="#messages"><span class="icon icon-message"></span>查看消息</a></li>-->
+            <!--<li><a href="#reports"><span class="icon icon-chart"></span>统计报表</a></li>-->
+
+            <li ng-class="{current: $state.includes('dashboard') || $state.includes('dUser') || $state.includes('dIndex')}"><a ui-sref="dIndex"><span class="icon icon-flatscreen"></span>首页</a></li>
+            <li ng-class="{current: $state.includes('users') || $state.includes('usersSpecimen') || $state.includes('level')}"><a ui-sref="users"><span class="icon icon-user"></span>用户管理</a></li>
+            <li ng-class="{current: $state.includes('demand') || $state.includes('industry') || $state.includes('trade') || $state.includes('cost')}"><a ui-sref="demand"><span class="icon icon-demand"></span>需求管理</a></li>
+            <li ui-sref-active="current"><a ui-sref="design"><span class="icon icon-design"></span>设计管理</a></li>
+            <li ui-sref-active="current"><a ui-sref="specimen"><span class="icon icon-specimen"></span>打板管理</a></li>
+            <li ui-sref-active="current"><a ui-sref="messages"><span class="icon icon-message"></span>查看消息</a></li>
+            <li ui-sref-active="current"><a ui-sref="reports"><span class="icon icon-chart"></span>统计报表</a></li>
+        </ul>
+
+       <div class="headerwidget">
+        	<div class="earnings" ng-cloak>
+            	<div class="one_half">
+                	<h4>任务总金额</h4>
+                    <h3>￥{{demand_money}}</h3>
+                </div><!--one_half-->
+                <div class="one_half last alignright">
+                	<h4>任务总数</h4>
+                    <h3>{{demand_count}}</h3>
+                </div><!--one_half last-->
+            </div><!--earnings-->
+        </div><!--headerwidget-->
+
+    </div><!--header-->
+    <ui-view></ui-view>
+</div><!--bodywrapper-->
+<!--<script type="text/javascript" src="js/plugins/jquery-ui-1.8.16.custom.min.js"></script>-->
+<script type="text/javascript" src="js/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.flot.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.flot.resize.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.slimscroll.js"></script>
+<script type="text/javascript" src="js/custom/general.js"></script>
+<script type="text/javascript" src="js/custom/dashboard.js"></script>
+
+</body>
+</html>

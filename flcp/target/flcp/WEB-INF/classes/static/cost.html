@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="js/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.uniform.min.js"></script>
+<!--<script type="text/javascript" src="js/plugins/jquery.cookie.js"></script>-->
+<body class="withvernav">
+<div class="bodywrapper">
+
+
+    <div class="centercontent tables">
+
+        <div id="contentwrapper" class="contentwrapper">
+            <div class="subcontent">
+                <div class="contenttitle2">
+                    <h3>计费管理</h3>
+                </div><!--contenttitle-->
+                <div class="tableoptions">
+                    <a ui-sref="cost.forms({id:''})" class="btn btn_orange btn_note"><span>新增规则</span></a>
+                </div><!--tableoptions-->
+                <table cellpadding="0" cellspacing="0" border="0" class="stdtable">
+                    <colgroup>
+                        <col class="con1"/>
+                        <col class="con0"/>
+                        <col class="con1"/>
+                        <col class="con0"/>
+                        <col class="con1"/>
+                        <col class="con0"/>
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="head1">规则名</th>
+                        <th class="head0">规则类型</th>
+                        <th class="head1">规则方式</th>
+                        <th class="head0">设定值</th>
+                        <th class="head1">规则描述</th>
+                        <th class="head0">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="gradeX" ng-repeat="c in cost" on-finish-render>
+                        <td class="content">
+                            <a ui-sref="cost.forms({id:c.id})">{{c.cost_name}}</a>
+                        </td>
+                        <td>
+                            <span ng-cloak ng-if="c.cost_type== '0'">提成</span>
+                        </td>
+                        <td>
+                            <span ng-cloak ng-if="c.cost_method== '1'">按生产件</span>
+                            <span ng-cloak ng-if="c.cost_method== '2'">按销售件</span>
+                            <span ng-cloak ng-if="c.cost_method== '3'">按销售比</span>
+                            <span ng-cloak ng-if="c.cost_method== '4'">按销售额</span>
+                        </td>
+                        <td>{{c.cost_value}}</td>
+                        <td>{{c.cost_describe}}</td>
+                        <td>
+                            启用
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div><!--contentwrapper-->
+
+    </div><!-- centercontent -->
+
+</div><!--bodywrapper-->
+
+</body>
+<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/custom/tables.js"></script>
+</html>

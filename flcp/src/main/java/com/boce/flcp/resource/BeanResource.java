@@ -2,7 +2,6 @@ package com.boce.flcp.resource;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
-import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.ResourceSupport;
 
 @JsonIgnoreProperties({ "id" })

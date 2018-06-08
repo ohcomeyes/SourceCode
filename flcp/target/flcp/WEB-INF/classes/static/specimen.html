@@ -1,0 +1,101 @@
+<script type="text/javascript" src="js/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.uniform.min.js"></script>
+<body class="withvernav">
+
+<div class="bodywrapper">
+
+    <div class="centercontent tables">
+
+        <div class="pageheader notab">
+            <h1 class="pagetitle">样品列表</h1>
+            <span class="pagedesc">页面的描述内容</span>
+
+        </div><!--pageheader-->
+
+        <div id="contentwrapper" class="contentwrapper">
+
+            <div class="contenttitle2">
+                <h3>Dynamic Table with Checkbox Column</h3>
+            </div><!--contenttitle-->
+            <div class="tableoptions">
+                <button class="deletebutton radius3" title="dyntable2">删除</button> &nbsp;
+                <select class="radius3">
+                    <option value="">全部</option>
+                    <option value="">Rendering Engine</option>
+                    <option value="">Platform</option>
+                </select> &nbsp;
+                <button class="radius3">应用</button>
+                <!--&nbsp;&nbsp;-->
+                <!--<a ui-sref="demand.forms({demand_id:'',status:0})" class="btn btn_orange btn_note"><span>发布需求</span></a>-->
+            </div><!--tableoptions-->
+            <table cellpadding="0" cellspacing="0" border="0" class="stdtable stdtablecb" id="dyntable2">
+                <colgroup>
+                    <col class="con0" style="width: 4%" />
+                    <col class="con1" />
+                    <col class="con0" />
+                    <col class="con1" />
+                    <col class="con0" />
+                    <col class="con1" />
+                    <col class="con0" />
+                    <col class="con1" />
+                    <col class="con0" />
+                    <col class="con1" />
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="head0 nosort"><input type="checkbox" class="checkall"/></th>
+                    <th class="head1">需求名称</th>
+                    <th class="head0">雇主</th>
+                    <th class="head1">类型</th>
+                    <th class="head0">设计师</th>
+                    <th class="head1">设计描述</th>
+                    <th class="head0">创建时间</th>
+                    <th class="head1">完成时间</th>
+                    <th class="head0">状态</th>
+                    <th class="head1">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="gradeX" ng-repeat="d in demand" on-finish-render>
+                    <td align="center"><span class="center">
+                                <input type="checkbox" />
+                              </span></td>
+                    <td class="content"><a ui-sref="specimen.forms({demand_id:d.id,status:2})">{{d.demand_name}}</a></td>
+                    <td>{{d.demand_employer}}</td>
+                    <td>
+                        {{d.demand_type}}
+                    </td>
+                    <td class="content"><a ui-sref="specimen.user">{{d.demand_bid_winner_name}}</a></td>
+                    <td title="{{d.demand_describe}}">{{d.demand_describe|textLengthSet:true:10:'...'}}</td>
+                    <td>{{d.demand_time}}</td>
+                    <td>{{d.design_time}}</td>
+                    <td >
+                        <div ng-cloak class="label label-making" ng-if="d.demand_status == 'making'">待打板</div>
+                        <div ng-cloak class="label label-affirm" ng-if="d.demand_status == 'affirm'">设计师确认</div>
+                        <div ng-cloak class="label label-send" ng-if="d.demand_status == 'send'">待送样</div>
+                        <div ng-cloak class="label label-specimenAudit" ng-if="d.demand_status == 'specimenAudit'">样板审核</div>
+                        <div ng-cloak class="label label-specimenReject" ng-if="d.demand_status == 'specimenReject'">样板驳回</div>
+                        <div ng-cloak class="label label-specimenApprove" ng-if="d.demand_status == 'specimenApprove'">样板通过</div>
+                    </td>
+                    <td class="center">
+                        <a ng-cloak  ui-sref="specimen.forms({demand_id:d.id,status:2})" ><span class="stdbtn btn_black">查看</span></a>
+                        <a ng-cloak  ng-click="done(d.id)" ng-if="d.demand_status == 'specimenApprove'"><span class="stdbtn btn_red">完成</span></a>
+                        <!--<a ng-cloak  ng-click="making(d.id)" ng-if="d.demand_status == 'making'" class="btn btn_blue btn_mouse"><span>打板</span></a>-->
+                        <a ng-cloak  ng-click="send(d.id)" ng-if="d.demand_status == 'send'"  class="btn btn_black btn_mouse"><span>收样</span></a>
+                        <a ng-cloak  ui-sref="design.forms({demand_id:d.id,status:2})" ng-if="d.demand_status == 'specimenAudit'" class="btn btn_blue btn_mouse"><span>审样</span></a>
+                    </td>
+                </tr>
+                </tbody>
+                <input id="specimen_user_id" value="" hidden="hidden">
+            </table>
+        </div><!--contentwrapper-->
+
+    </div><!-- centercontent -->
+
+
+</div><!--bodywrapper-->
+
+</body>
+<script type="text/javascript" src="js/plugins/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/custom/tables.js"></script>
+</html>

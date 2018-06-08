@@ -1,8 +1,5 @@
 package com.boce.flcp.interceptor;
 
-import com.boce.flcp.service.IndexService;
-import com.boce.flcp.util.Arith;
-import com.boce.flcp.util.CommonUtils;
 import com.boce.flcp.util.RedisUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -10,8 +7,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.math.BigDecimal;
-import java.util.Map;
 
 /**
  * @author xutang

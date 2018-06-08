@@ -1,7 +1,6 @@
 package com.boce.flcp.resource;
 
 import com.boce.flcp.domain.Demand;
-import org.springframework.hateoas.Link;
 import org.springframework.hateoas.Resource;
 
 public class DemandResource  extends Resource {

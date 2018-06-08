@@ -1,19 +1,15 @@
 package com.boce.flcp.util;
 
 import com.google.common.collect.Maps;
+import net.sf.cglib.beans.BeanMap;
 import sun.misc.BASE64Encoder;
 
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Field;
-import java.math.BigDecimal;
-import net.sf.cglib.beans.BeanMap;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
-import static java.awt.SystemColor.info;
 
 public class CommonUtils {
     /**利用MD5进行加密

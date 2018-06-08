@@ -1,11 +1,9 @@
 package com.boce.flcp.util;
-import java.sql.Connection;          //Connection接口
-import java.sql.DriverManager;       //使用DriverManager类连接数据库
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;           //用于数据库查询的接口
-import java.sql.Statement;           //对数据库操作需要用到的Statement接口，此接口可以通过使用Connection接口中提供的createStatement（）方法实例化。
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 
 @SuppressWarnings("unused")

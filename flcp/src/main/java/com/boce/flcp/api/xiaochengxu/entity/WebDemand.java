@@ -1,7 +1,5 @@
 package com.boce.flcp.api.xiaochengxu.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.math.BigDecimal;
 
 /**

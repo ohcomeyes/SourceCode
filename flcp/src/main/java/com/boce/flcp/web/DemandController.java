@@ -1,32 +1,23 @@
 package com.boce.flcp.web;
 
 import com.boce.flcp.assembler.DemandAssembler;
-import com.boce.flcp.assembler.UserAssembler;
-import com.boce.flcp.dao.DemandRepository;
 import com.boce.flcp.domain.*;
 import com.boce.flcp.domain.list.DemandList;
 import com.boce.flcp.domain.list.DesignList;
 import com.boce.flcp.domain.list.SpecimenList;
 import com.boce.flcp.domain.list.UserSpecimenList;
-import com.boce.flcp.resource.BeanResource;
 import com.boce.flcp.resource.DemandResource;
-import com.boce.flcp.resource.UserResource;
 import com.boce.flcp.service.DemandService;
-import com.boce.flcp.util.CommonUtils;
 import io.swagger.annotations.*;
-import org.apache.tomcat.jni.Poll;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.rest.core.annotation.RestResource;
-import org.springframework.hateoas.*;
+import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.util.*;
+import java.util.List;
 
+@Api(value="4_需求",position=4,description ="需求API")
 @RestController
 @RequestMapping("/api/demands")
 public class DemandController {

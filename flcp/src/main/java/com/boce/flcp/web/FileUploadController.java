@@ -2,18 +2,15 @@ package com.boce.flcp.web;
 
 
 import com.boce.flcp.domain.Content;
-import com.boce.flcp.domain.Unify;
 import com.boce.flcp.service.FileUploadService;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.HashMap;
-
 import java.util.Map;
 
-
+@Api(value="9_上传文件",position=9,description ="上传文件API")
 @RestController
 @RequestMapping(value = "upload")
 public class FileUploadController {

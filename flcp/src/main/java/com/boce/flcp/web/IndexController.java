@@ -1,9 +1,8 @@
 package com.boce.flcp.web;
 
-import com.boce.flcp.domain.list.UserSpecimenList;
-import com.boce.flcp.domain.model.DemandAnalyze;
 import com.boce.flcp.domain.model.PendingWork;
 import com.boce.flcp.service.IndexService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -22,6 +21,7 @@ import java.util.Map;
  * @Description: TODO
  * @date 2017/12/4 14:06
  */
+@Api(value="2_后端首页",position=2,description ="后端首页API")
 @RestController
 @RequestMapping("/api/index")
 public class IndexController {

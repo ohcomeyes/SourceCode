@@ -1,8 +1,8 @@
 package com.boce.flcp.api.xiaochengxu.data;
 
 import com.boce.flcp.api.xiaochengxu.entity.Superior;
-import com.boce.flcp.api.xiaochengxu.entity.WebDemand;
 import com.boce.flcp.service.UserService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author: Mr.Tang
  * @create: 2018-05-07 10:15
  **/
+@Api(value="7_小程序首页大牛",position=7,description ="小程序大牛API")
 @RestController
 @RequestMapping("/api/data/superior")
 public class SuperiorController {

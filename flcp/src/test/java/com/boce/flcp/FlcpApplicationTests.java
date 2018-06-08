@@ -31,40 +31,40 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+//@RunWith(SpringRunner.class)
+//@SpringBootTest
 public class FlcpApplicationTests {
-    @Autowired
-    StringRedisTemplate stringRedisTemplate;
-    @Autowired
-    RedisTemplate redisTemplate;
-    @Autowired
-    RedisUtils redisUtils;
+//    @Autowired
+//    StringRedisTemplate stringRedisTemplate;
+//    @Autowired
+//    RedisTemplate redisTemplate;
+//    @Autowired
+//    RedisUtils redisUtils;
+//
+//    @Autowired
+//    WorksRepository worksRepository;
 
-    @Autowired
-    WorksRepository worksRepository;
-
-    @Test
-    public void writeWorks(){
-        String path="C:/Users/tangxu/Desktop/协同设计平台模板/girl";
-        File file=new File(path);
-        File[] tempList = file.listFiles();
-        System.out.println("该目录下对象个数："+tempList.length);
-        List<Works> worksList = new ArrayList<>();
-        for (int i = 0; i < tempList.length; i++) {
-            if (tempList[i].isFile()) {
-                System.out.println("文件：" + tempList[i].getName());
-                Works works = new Works();
-                works.setType("福利");
-                works.setUsed("1099833");
-                works.setSource("xiaochengxu");
-                works.setUrl(tempList[i].getName());
-                works.setWho("daimajia");
-                worksList.add(works);
-            }
-        }
-        worksRepository.save(worksList);
-    }
+    // @Test
+//    public void writeWorks(){
+//        String path="C:/Users/tangxu/Desktop/协同设计平台模板/girl";
+//        File file=new File(path);
+//        File[] tempList = file.listFiles();
+//        System.out.println("该目录下对象个数："+tempList.length);
+//        List<Works> worksList = new ArrayList<>();
+//        for (int i = 0; i < tempList.length; i++) {
+//            if (tempList[i].isFile()) {
+//                System.out.println("文件：" + tempList[i].getName());
+//                Works works = new Works();
+//                works.setType("福利");
+//                works.setUsed("1099833");
+//                works.setSource("xiaochengxu");
+//                works.setUrl(tempList[i].getName());
+//                works.setWho("daimajia");
+//                worksList.add(works);
+//            }
+//        }
+//        worksRepository.save(worksList);
+//    }
 
 //    @Test
     @SuppressWarnings("unchecked")
@@ -95,20 +95,21 @@ public class FlcpApplicationTests {
 
 //        redisTemplate.delete("demand:statistics:20171221");
 //        redisTemplate.delete("demand:statistics:20171222");
-        String begin_time = "2017-12-21";
-        String end_time = "2017-12-25";
-        List<String> keys = CommonUtils.getBetweenDatesAndPrefix(begin_time,end_time,"yyyyMMdd",IndexService.KEY_DEMAND_STATISTICS);
-        List<Object> list = redisUtils.getPipelinedMap(keys);
-        System.out.println(list);
-        for(Object object : list){
-            JSONObject jasonObject = JSONObject.fromObject(object);
-            if(!jasonObject.isEmpty()){
-                System.out.println(jasonObject);
-            }else{
-                System.out.println("空:"+jasonObject);
-            }
 
-        }
+//        String begin_time = "2017-12-21";
+//        String end_time = "2017-12-25";
+//        List<String> keys = CommonUtils.getBetweenDatesAndPrefix(begin_time,end_time,"yyyyMMdd",IndexService.KEY_DEMAND_STATISTICS);
+//        List<Object> list = redisUtils.getPipelinedMap(keys);
+//        System.out.println(list);
+//        for(Object object : list){
+//            JSONObject jasonObject = JSONObject.fromObject(object);
+//            if(!jasonObject.isEmpty()){
+//                System.out.println(jasonObject);
+//            }else{
+//                System.out.println("空:"+jasonObject);
+//            }
+//
+//        }
 
 //        Map map = new HashMap<>();
 //        map.put("size","10");

@@ -5,6 +5,7 @@ import com.boce.flcp.domain.Cost;
 import com.boce.flcp.domain.Unify;
 import com.boce.flcp.domain.User;
 import com.boce.flcp.service.CostService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ import java.util.List;
  * @author: Mr.Tang
  * @create: 2018-03-28 15:29
  **/
+@Api(value="5_规则",position=5,description ="规则API")
 @RestController
 @RequestMapping("/api/costs")
 public class CostController {

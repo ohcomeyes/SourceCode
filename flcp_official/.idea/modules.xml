@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../flcp/flcp.iml" filepath="$PROJECT_DIR$/../flcp/flcp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/flcp_official.iml" filepath="$PROJECT_DIR$/flcp_official.iml" />
     </modules>
   </component>
 </project>

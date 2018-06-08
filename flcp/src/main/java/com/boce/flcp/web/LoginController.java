@@ -1,6 +1,7 @@
 package com.boce.flcp.web;
 
 import com.boce.flcp.domain.Content;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 
+@Api(value="1_后端登陆",position=1,description ="后端登陆API")
 @RequestMapping("/system")
 @RestController
 public class LoginController {

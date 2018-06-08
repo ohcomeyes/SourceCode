@@ -1,7 +1,6 @@
 package com.boce.flcp.service;
 
 import com.boce.flcp.dao.DemandRepository;
-import com.boce.flcp.domain.model.DemandAnalyze;
 import com.boce.flcp.domain.model.PendingWork;
 import com.boce.flcp.util.CommonUtils;
 import com.boce.flcp.util.RedisUtils;

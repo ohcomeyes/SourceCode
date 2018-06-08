@@ -1,0 +1,149 @@
+<script type="text/javascript" src="js/plugins/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery-ui-1.8.16.custom.min.js"></script>
+<script type="text/javascript" src="js/plugins/jquery.uniform.min.js"></script>
+<link rel="stylesheet" href="js/layui/css/layui.css" media="all">
+<body class="withvernav">
+<div class="bodywrapper">
+
+    <div class="centercontent">
+
+        <div class="pageheader">
+            <h1 class="pagetitle">控制台</h1>
+            <span class="pagedesc">页面的描述内容</span>
+
+            <!--<ul class="hornav">-->
+                <!--<li class="current"><a href="#updates">需求分析</a></li>-->
+                <!--&lt;!&ndash;<li><a href="#activities">最近活动</a></li>&ndash;&gt;-->
+            <!--</ul>-->
+        </div><!--pageheader-->
+
+        <div id="contentwrapper" class="contentwrapper">
+
+        	<div id="updates" class="subcontent">
+                    <div class="notibar announcement" >
+                        <a class="close"></a>
+                        <h3>通知</h3>
+                        <p ng-cloak>有<a ui-sref="demand">{{demandPending.count}}</a>条需求正在进行招标，最早发布时间<span class="datetime">{{demandPending.start_time}}</span>、最近发布时间<span class="datetime">{{demandPending.end_time}}</span>，至今<span class="num">{{demandPending.interval_time}}</span>未招标&nbsp;&nbsp;<span class="layui-badge layui-bg-orange">HOT~~</span></p>
+                        <p ng-cloak>有<a ui-sref="design">{{designPending.count}}</a>条需求需要审核，最早发布时间<span class="datetime">{{designPending.start_time}}</span>、最近发布时间<span class="datetime">{{designPending.end_time}}</span>，至今<span class="num">{{designPending.interval_time}}</span>未审核&nbsp;&nbsp;<span class="layui-badge">HOT~~</span></p>
+                        <p ng-cloak>有<a ui-sref="specimen">{{specimenPending.count}}</a>个产品设计需要打板，最早发布时间<span class="datetime">{{specimenPending.start_time}}</span>、最近发布时间<span class="datetime">{{specimenPending.end_time}}</span>，至今<span class="num">{{specimenPending.interval_time}}</span>未打板&nbsp;&nbsp;<span class="layui-badge layui-bg-blue">HOT~~</span></p>
+                    </div><!-- notification announcement -->
+
+                    <div class="two_third dashboard_left">
+
+                    	<!--<ul class="shortcuts">-->
+                        	<!--<li><a href="" class="settings"><span>设置</span></a></li>-->
+                            <!--<li><a href="" class="users"><span>用户</span></a></li>-->
+                            <!--<li><a href="" class="gallery"><span>相册</span></a></li>-->
+                            <!--<li><a href="" class="events"><span>事件</span></a></li>-->
+                            <!--<li><a href="" class="analytics"><span>分析</span></a></li>-->
+                        <!--</ul>-->
+                        <!--<br clear="all" />-->
+
+                        <div class="contenttitle2 nomargintop">
+                            <h3>需求分析</h3>
+                        </div><!--contenttitle-->
+
+                        <div class="overviewhead">
+                        	<div class="overviewselect">
+                                <select id="overviewselect" name="select">
+                                    <!--<option value="">近一小时</option>-->
+                                    <!--<option value="">近五小时</option>-->
+                                    <option value="">今天</option>
+                                    <!--<option value="">昨天</option>-->
+                                    <!--<option value="">这一周</option>-->
+                                    <!--<option value="">上一周</option>-->
+                                    <!--<option value="">这一月</option>-->
+                                    <!--<option value="">上个月</option>-->
+                                </select>
+                            </div><!--floatright-->
+                        	From: &nbsp;<input type="text" id="datepickfrom" /> &nbsp; &nbsp; To: &nbsp;<input type="text" id="datepickto" /> &nbsp; &nbsp; <a href="javascript:void(0)" ng-click="searchDate()"  class="btn btn_orange btn_search radius50"><span>Search</span></a>
+                        </div><!--overviewhead-->
+
+                        <br clear="all" />
+
+                        <table cellpadding="0" cellspacing="0" border="0" class="stdtable overviewtable">
+                            <colgroup>
+                                <col class="con0" width="20%" />
+                                <col class="con1" width="20%" />
+                                <col class="con0" width="20%" />
+                                <col class="con1" width="20%" />
+                                <col class="con0" width="20%" />
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th class="head0">总进度</th>
+                                    <th class="head1">参与占比</th>
+                                    <th class="head0">总需求</th>
+                                    <th class="head1">总金额</th>
+                                    <th class="head0">已完成</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-cloak>
+                                    <td>
+                                    	<div class="progress progress150">
+                            				<div class="bar"><div style="width: {{demandCount.percentage}};" class="value bluebar"></div></div>
+                        				</div>
+                        			</td>
+                                    <td>{{demandCount.percentage}}</td>
+                                    <td>{{demandCount.size}}</td>
+                                    <td class="center">{{demandCount.money}}</td>
+                                    <td class="center">{{demandCount.winner}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <br clear="all" />
+                        <div id="demand" style="height:400px"></div>
+                        <!--<div id="chartplace" style="height:300px;"></div>-->
+
+                    </div><!--two_third dashboard_left -->
+
+                    <div class="one_third last dashboard_right">
+                        <div class="contenttitle2 nomargintop">
+                            <h3>需求占比</h3>
+                        </div><!--contenttitle-->
+                        <br clear="all" />
+                        <div id="proportion" style="height:400px"></div>
+
+                        <div class="contenttitle2 nomargintop">
+                            <h3>TOP 5 需求</h3>
+                        </div><!--contenttitle-->
+                    	<ul class="toplist" ng-repeat="top in topFiveDemand" ng-cloak>
+                        	<li>
+                            	<div>
+                                	<span class="three_fourth">
+                                    	<span class="left">
+                                    		<span class="title"><a href="">{{top[0]}}</a></span>
+                                        	<span class="desc">{{top[1]}}</span>
+                                    	</span><!--left-->
+                                    </span><!--three_fourth-->
+                                    <span class="one_fourth last">
+                                    	<span class="right">
+                                        	<span class="h3">{{top[2]}}</span>
+                                        </span><!--right-->
+                                    </span><!--one_fourth-->
+                                    <br clear="all" />
+                                </div>
+                            </li>
+                        </ul>
+
+
+                    </div><!--one_third last-->
+
+
+            </div><!-- #updates -->
+
+            <div id="activities" class="subcontent" style="display: none;">
+            	&nbsp;
+            </div><!-- #activities -->
+
+        </div><!--contentwrapper-->
+
+        <br clear="all" />
+
+	</div><!-- centercontent -->
+</div><!--bodywrapper-->
+
+</body>
+

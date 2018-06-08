@@ -6,7 +6,9 @@
 	<groupId>com.boce</groupId>
 	<artifactId>flcp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
+	<!--war/jar打包方式
+	<packaging>war</packaging>-->
 
 	<name>flcp</name>
 	<description>Demo project for Spring Boot</description>
@@ -59,6 +61,11 @@
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.25</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -120,6 +127,11 @@
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.ohcomeyes</groupId>
+			<artifactId>swagger-ui-layer</artifactId>
+			<version>1.2</version>
+		</dependency>
     </dependencies>
 
 	<build>
@@ -129,6 +141,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>flcp</finalName>
 	</build>
 
 
