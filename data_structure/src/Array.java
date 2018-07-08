@@ -94,6 +94,8 @@ public class Array {
 
     /**
      * 冒泡排序
+     * 每趟冒出一个最大数/最小数
+     * 每次运行数量：总数量-运行的趟数(已冒出)
      */
     public void bubbleSort(){
         for(int i = 0; i < elems-1; i++){//排序趟数  n-1次就行了
@@ -109,15 +111,62 @@ public class Array {
         }
     }
 
+    /***
+     * 选择排序
+     * 每趟选择一个最大数/最小数
+     * 每次运行数量：总数量-运行的趟数(已选出)
+     */
+    public void selectSort(){
+        for(int i = 0; i < elems-1; i++) {//排序趟数  n-1次就行了
+            int min = i;
+            for(int j = i+1; j < elems; j++){ //排序次数 每趟选择一个数出来，-1次
+                if(intArray[j] < intArray[min]){
+                    min = j;
+                }
+            }
+            if(i != min ){
+                int temp = intArray[i];
+                intArray[i] = intArray[min];
+                intArray[min] = temp;
+            }
+            display();
+        }
+    }
+
+    /**
+     * 插入排序
+     * 每趟选择一个待插入的数
+     * 每次运行把待插入的数放在比它大/小后面
+     */
+    public void insertSort(){
+        int j;
+        for(int i = 1; i < elems; i++){
+            int temp = intArray[i];
+            j = i;
+            while (j > 0 && temp < intArray[j-1]){
+                intArray[j] = intArray[j-1];
+                j--;
+            }
+            intArray[j] = temp;
+        }
+        display();
+    }
+
     public static void main(String[] args) {
-        Array array = new Array(6);
+        Array array = new Array(10);
         array.add(6);
         array.add(3);
         array.add(8);
         array.add(2);
+        array.add(11);
+        array.add(5);
+        array.add(7);
+        array.add(4);
         array.add(9);
-        array.add(1);
-        array.bubbleSort();
+        array.add(10);
+//        array.bubbleSort();
+//        array.selectSort();
+        array.insertSort();
 //        array.display();
 //        System.out.println(array.find(4));
 //        System.out.println(array.delete(1));
